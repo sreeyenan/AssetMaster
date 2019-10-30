@@ -1,0 +1,96 @@
+<mdb-card cascade="true" narrower="true" style="margin-left: 5%;margin-right: 5%;margin-top:2%">
+    <!--Card image-->
+    <div
+        class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+        <div>
+
+        </div>
+        <a href="" class="white-text mx-3">Purchase Details</a>
+        <div>
+            <button type="button" (click)="list1()" mdbBtn color="white" outline="true" rounded="true" size="bg"
+                class="px-2" mdbWavesEffect>
+                <mdb-icon fas icon="plus-circle" class="mt-0"></mdb-icon>
+            </button>
+
+        </div>
+
+    </div>
+    <!--/Card image-->
+
+    <div class="px-4">
+
+        <div class="table-wrapper">
+            <!--Table-->
+            <table class="mb-0" mdbTable hover="true">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <!-- <th class="th-lg"><a (click)="sortBy('first')">Id<mdb-icon fas icon="sort"
+                                                class="ml-1"></mdb-icon></a></th> -->
+                        <!-- <th>Purchase Id</th> -->
+                        <th class="th-lg"><a (click)="sortBy('first')">Purchase Order<mdb-icon fas icon="sort"class="ml-1"></mdb-icon></a></th>
+                        <th class="th-lg"><a (click)="sortBy('first')">Asset Type<mdb-icon fas icon="sort" class="ml-1">
+                                </mdb-icon></a></th>
+                        <th class="th-lg"><a (click)="sortBy('first')">Asset Name<mdb-icon fas icon="sort" class="ml-1">
+                                </mdb-icon></a></th>
+                        <th class="th-lg"><a (click)="sortBy('first')">Vendor Name<mdb-icon fas icon="sort"
+                                    class="ml-1"></mdb-icon></a></th>
+                        <th class="th-lg"><a (click)="sortBy('first')">Quantity<mdb-icon fas icon="sort" class="ml-1">
+                                </mdb-icon></a></th>
+                        <th class="th-lg"><a (click)="sortBy('first')">Purchase Date<mdb-icon fas icon="sort"
+                                    class="ml-1"></mdb-icon></a></th>
+                        <th class="th-lg"><a (click)="sortBy('first')">Delivery Date<mdb-icon fas icon="sort"
+                                    class="ml-1"></mdb-icon></a></th>
+                        <!-- <th class="th-lg"><a (click)="sortBy('first')">Status<mdb-icon fas icon="sort" class="ml-1">
+                                </mdb-icon></a></th> -->
+                        <th class="th-lg"><a (click)="sortBy('first')">Action<mdb-icon fas icon="sort" class="ml-1">
+                                </mdb-icon></a></th>
+
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <tbody>
+                    <!--Table body-->
+                    <tr *ngFor="let purchaseDet of purchaseDets | async">
+                        <th scope="row">
+                        </th>
+                        <!-- <td>{{purchaseDet.pdId}}</td> -->
+                        <td>{{purchaseDet.pdOrder}}</td>
+                        <td>{{purchaseDet.pdType}}</td>
+                        <td>{{purchaseDet.pdName}}</td>
+                        <td>{{purchaseDet.pdVendor}}</td>
+                        <td>{{purchaseDet.pdQty}}</td>
+                        <td>{{purchaseDet.pdDate}}</td>
+                        <td>{{purchaseDet.pdDdate}}</td>
+                        <!-- <td>{{purchaseDet.pdStatus}}</td> -->
+                        <td>
+                            <button type="button" (click)=purchaseDeliveryDate(purchaseDet.pdId)
+                                [disabled]="purchaseDet.pdStatus=='Delivered'" mdbBtn color="green" outline="true"
+                                rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                <mdb-icon fas icon="truck" class="mt-0"></mdb-icon>
+                            </button>
+                            <button type="button" (click)=updatePurchaseDet(purchaseDet.pdId) [disabled]="purchaseDet.pdStatus=='Delivered'" mdbBtn color="green"
+                                outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+                            </button>
+                            <button type="button" (click)=deletePurchaseDet(purchaseDet.pdId)
+                                [disabled]="purchaseDet.pdStatus=='Delivered'" mdbBtn color="red" outline="true"
+                                rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+                            </button>
+                            <button type="button" (click)=PurchaseDetDetails(purchaseDet.pdId) mdbBtn color="black"
+                                outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                                <mdb-icon fas icon="info" class="mt-0"></mdb-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+    </div>
+</mdb-card>

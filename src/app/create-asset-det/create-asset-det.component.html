@@ -1,0 +1,78 @@
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+
+      <!--Content-->
+      <div class="modal-content">
+  
+        <!--Header-->
+        <div class="modal-header info-color white-text">
+          <h4 class="title">
+              <i class="fa fa-pencil-alt"></i>Create Asset Details</h4>
+            </div>
+<!--Body-->
+<div class="modal-body" [hidden]="submitted" >
+
+  <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+
+    <!-- Asset Type -->
+
+    <div class="form-group">
+        <label for="defaultFormNameModalEx">Asset Type</label>
+      <input type="text" class="form-control" formControlName="adType" #adType />
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['adType'].invalid && (angForm.controls['adType'].dirty || angForm.controls['adType'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['adType'].errors.required">
+        Asset Type is required.
+      </div>
+    </div>
+
+    <!-- Asset Name -->
+
+    <div class="form-group">
+      <label for="name"> Asset Name</label>
+      <input type="text" class="form-control" formControlName="adName" #adName />
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['adName'].invalid && (angForm.controls['adName'].dirty || angForm.controls['adName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['adName'].errors.required">
+        Asset Name is required.
+      </div>
+    </div>
+
+    <!-- Asset class -->
+
+    <div class="form-group" >
+      <label for="name"> Asset Class</label>
+      <br>
+      <input type="radio" value="Hardware" name="adClass" formControlName="adClass">Hardware
+      <input type="radio" value="Software" name="adClass" formControlName="adClass">Software
+   
+    </div>
+
+
+    <!-- submit -->
+
+<div class="text-center mt-4 mb-2">
+          <button  type="button" (click)="list()" mdbBtn color="black"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+            <mdb-icon fas icon="arrow-circle-left" class="mt-0"></mdb-icon>
+              
+          </button>
+          <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" mdbBtn color="green"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+              <mdb-icon fas icon="cart-plus" class="mt-0"></mdb-icon>
+        
+            </button>
+        </div>
+    
+  </form>
+
+</div>
+

@@ -1,0 +1,137 @@
+<!-- <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Asset Details</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th>Asset Id</th>
+                <th>Asset Type</th>
+                <th>Asset Name</th>
+                <th>Asset Class</th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let assetDet of assetDets | async">
+                    <td>{{assetDet.adId}}</td>
+                    <td>{{assetDet.adType}}</td>
+                    <td>{{assetDet.adName}}</td>
+                    <td>{{assetDet.adClass}}</td>
+                    <td><button (click)=deleteAssetDet(assetDet.adId) class="btn btn-danger">Delete</button>
+                        <button (click)=updateAssetDet(assetDet.adId) class="btn btn-info">Edit</button>
+                        <button (click)=AssetDetDetails(assetDet.adId) class="btn btn-info">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+        <button (click)="list1()" class="btn btn-primary">Add Asset</button><br>
+</div> -->
+<mdb-card cascade="true" narrower="true" style="margin-left: 5%;margin-right: 5%;margin-top:2%">
+  <!--Card image-->
+  <div
+  
+    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+    <div>
+        
+      <!-- <button mdbBtn color="white" outline="true" rounded="true" size="sm" type="button" class="px-2" mdbWavesEffect>
+              <mdb-icon fas icon="th-large" class="mt-0"></mdb-icon>
+            </button>
+            <button mdbBtn color="white" outline="true" rounded="true" size="sm" type="button" class="px-2" mdbWavesEffect>
+              <mdb-icon fas icon="columns" class="mt-0"></mdb-icon>
+            </button> -->
+    </div>
+
+    <a href="" class="white-text mx-3">Asset Details</a>
+
+    <div>
+      <button type="button" (click)="list1()" mdbBtn color="white" outline="true" rounded="true" size="bg" class="px-2"
+        mdbWavesEffect>
+        <mdb-icon fas icon="plus-circle" class="mt-0"></mdb-icon>
+      </button>
+
+
+      <!--  <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
+              <mdb-icon fas fas icon="info-circle-circle" class="mt-0"></mdb-icon>
+            </button> -->
+    </div>
+
+  </div>
+  <!--/Card image-->
+
+  <div class="px-4">
+
+    <div class="table-wrapper">
+      <!--Table-->
+      <table class="mb-0" mdbTable hover="true">
+
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th>
+              <!-- <mdb-checkbox></mdb-checkbox> -->
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('first')">Asset Id
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('last')">Asset Type
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('username')">Asset Name
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+            <th class="th-lg">
+              <a (click)="sortBy('email')">Asset Class
+                <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+              </a>
+            </th>
+
+          </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+          <tr *ngFor="let assetDet of assetDets | async">
+            <th scope="row">
+              <!-- <mdb-checkbox></mdb-checkbox> -->
+            </th>
+            <td>{{assetDet.adId}}</td>
+            <td>{{assetDet.adType}}</td>
+            <td>{{assetDet.adName}}</td>
+            <td>{{assetDet.adClass}}</td>
+            <td>
+              <button type="button" (click)=updateAssetDet(assetDet.adId) mdbBtn color="green" outline="true"
+                rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
+              </button>
+              <button type="button" (click)=deleteAssetDet(assetDet.adId) mdbBtn color="red" outline="true"
+                rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
+              </button>
+              <button type="button" (click)=AssetDetDetails(assetDet.adId) mdbBtn color="black" outline="true"
+                rounded="true" size="sm" class="px-2" mdbWavesEffect>
+                <mdb-icon fas icon="info" class="mt-0"></mdb-icon>
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+        <!--Table body-->
+      </table>
+      <!--Table-->
+    </div>
+  </div>
+</mdb-card>

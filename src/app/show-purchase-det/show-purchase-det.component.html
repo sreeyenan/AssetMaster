@@ -1,0 +1,54 @@
+
+<div id="modalDefaultContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!--Modal: Contact form-->
+        <div class="modal-dialog cascading-modal" role="document">
+    
+                <!--Content-->
+                <div class="modal-content">
+        
+                    <!--Header-->
+                    <div class="modal-header info-color white-text">
+                        <h4 class="title">
+                                <i class="fa fa-pencil-alt"></i> Purchase Details</h4>
+                                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <!--Body-->
+                                <div class="modal-body"  *ngIf="purchaseDet">
+ <label for="defaultFormNameModalEx">Purchase Id </label>
+ <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdId}}</p>
+  
+            <label for="defaultFormNameModalEx">Purchase Order</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdOrder}}</p>
+           
+            <label for="defaultFormNameModalEx">Asset Type</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdType}}</p>
+            
+            <label for="defaultFormNameModalEx">Asset Name</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdName}}</p>
+           
+            <label for="defaultFormNameModalEx">Vendor Name</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdVendor}}</p>
+           
+            <label for="defaultFormNameModalEx">Purchase Quantity</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdQty}}</p>
+           
+            <label for="defaultFormNameModalEx">Purchase Date</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdDate}}</p>
+           
+            <label for="defaultFormNameModalEx">Purchase Status</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{purchaseDet.pdStatus}}</p>
+            <br>
+            <div class="text-center mt-4 mb-2">
+                <button (click)="list()" class="btn btn-info">Back
+                    <i class="fa fa-send ml-2"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+<!--/Modal: Contact form-->
+</div>

@@ -1,0 +1,60 @@
+
+<div id="modalDefaultContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!--Modal: Contact form-->
+        <div class="modal-dialog cascading-modal" role="document">
+    
+                <!--Content-->
+                <div class="modal-content">
+        
+                    <!--Header-->
+                    <div class="modal-header info-color white-text">
+                        <h4 class="title">
+                                <i class="fa fa-pencil-alt"></i> Asset Master Details</h4>
+                                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <!--Body-->
+                                <div class="modal-body" *ngIf="assetMaster">
+ <label for="defaultFormNameModalEx">Asset Id </label>
+ <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amId}}</p>
+  
+            <label for="defaultFormNameModalEx">Asset Type</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amType}}</p>
+           
+            <label for="defaultFormNameModalEx">Vendor Name</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amVendor}}</p>
+            
+            <label for="defaultFormNameModalEx">Asset Name</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amModel}}</p>
+           
+            <label for="defaultFormNameModalEx">Serial Number</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amSNumber}}</p>
+           
+            <label for="defaultFormNameModalEx">Manufacturing Year</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amMYear}}</p>
+           
+            <label for="defaultFormNameModalEx">Purchase Date</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amPdDate}}</p>
+           
+            <label for="defaultFormNameModalEx">Warranty Status</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amWarranty}}</p>
+            <label for="defaultFormNameModalEx">Warranty From</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amFrom}}</p>
+            <label for="defaultFormNameModalEx">Warranty To</label>
+            <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{assetMaster.amTo}}</p>
+           
+            <br>
+            <div class="text-center mt-4 mb-2">
+                <button (click)="list()" class="btn btn-info">Back
+                    <i class="fa fa-send ml-2"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Content-->
+</div>
+<!--/Modal: Contact form-->
+</div>
+

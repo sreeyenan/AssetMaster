@@ -1,0 +1,57 @@
+
+<div id="modalDefaultContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--Modal: Contact form-->
+    <div class="modal-dialog cascading-modal" role="document">
+
+            <!--Content-->
+            <div class="modal-content">
+    
+                <!--Header-->
+                <div class="modal-header info-color white-text">
+                    <h4 class="title">
+                        <i class="fa fa-pencil-alt"></i> Asset Details</h4>
+                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body" *ngIf="vendorDet">
+                    <!-- Default input name -->
+                    <label for="defaultFormNameModalEx">Id </label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdId}}</p>
+    
+                    <label for="defaultFormNameModalEx">Name</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdName}}</p>
+    
+                    <label for="defaultFormNameModalEx"> Type</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdType}}</p>
+    
+                    <label for="defaultFormNameModalEx">Asset Type</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdAType}}</p>
+    
+                    <label for="defaultFormNameModalEx">Asset Name</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdAName}}</p>
+    
+                    <label for="defaultFormNameModalEx">Valid From</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdFrom}}</p>
+    
+                    <label for="defaultFormNameModalEx"> Valid To</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdTo}}</p>
+    
+                    <label for="defaultFormNameModalEx"> Address</label>
+                    <p id="defaultFormNameModalEx" class="form-control form-control-bg">{{vendorDet.vdAddress}}</p>
+    
+    
+                    <br>
+                    <div class="text-center mt-4 mb-2">
+                        <button (click)="list()" class="btn btn-info">Back
+                            <i class="fa fa-send ml-2"></i>
+                        </button>
+                    </div>
+    
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+        <!--/Modal: Contact form-->
+    </div>

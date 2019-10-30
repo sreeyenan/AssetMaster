@@ -1,0 +1,84 @@
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+
+        <!--Content-->
+        <div class="modal-content">
+  
+            <!--Header-->
+            <div class="modal-header info-color white-text">
+              <h4 class="title">
+                  <i class="fa fa-pencil-alt"></i>Create Asset Details</h4>
+                </div>
+    <!--Body-->
+    <div class="modal-body" [hidden]="submitted" >
+
+    <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+      <!-- Asset ID-->
+
+      <!-- <div class="form-group">
+                        <label class="col-md-4">Asset ID</label>
+                        <input type="text" class="form-control" formControlName="adId" 
+                          #adId [(ngModel)] = "assetDet.adId"/>
+            </div>   -->
+
+      <!-- Asset Type -->
+
+
+      <div class="form-group">
+        <label class="col-md-4">Asset Type</label>
+        <input type="text" class="form-control" formControlName="adType" #adType [(ngModel)]="assetDet.adType" />
+      </div>
+      <div
+        *ngIf="angForm.controls['adType'].invalid && (angForm.controls['adType'].dirty || angForm.controls['adType'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['adType'].errors.required">
+          Asset Type is required.
+        </div>
+      </div>
+
+      <!-- Asset Name -->
+
+      <div class="form-group">
+        <label class="col-md-4">Asset Name</label>
+        <input type="text" class="form-control" formControlName="adName" #adName [(ngModel)]="assetDet.adName" />
+      </div>
+      <div
+        *ngIf="angForm.controls['adName'].invalid && (angForm.controls['adName'].dirty || angForm.controls['adName'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['adName'].errors.required">
+          Asset Name is required.
+        </div>
+      </div>
+
+
+      <!-- Asset Class -->
+      <div class="form-group">
+        <label class="col-md-4">Asset Class </label>
+        <input type="radio" value="Hardware" name="adClass" formControlName="adClass" #adClass
+          [(ngModel)]="assetDet.adClass">Hardware
+        <input type="radio" value="Software" name="adclass" formControlName="adClass" #adClass
+          [(ngModel)]="assetDet.adClass">Software
+      </div>
+      <div
+        *ngIf="editassetForm.controls['adClass'].invalid && (editassetForm.controls['adClass'].dirty || editassetForm.controls['adClass'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="editassetForm.controls['adClass'].errors.required">
+          Asset Class is required.
+        </div>
+      </div>
+
+      <!-- submit -->
+
+      <div class="form-group">
+          <button type="submit"  (click)="list()" class="btn btn-primary" [disabled]="angForm.invalid">
+              Back
+            </button>
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.invalid">
+          Update Asset Details
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

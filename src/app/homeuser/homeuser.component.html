@@ -1,0 +1,91 @@
+<!-- <nav class="navbar navbar-expand -sm bg-primary navbar-dark"></nav>
+<div class="container-fluid">
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="list-purchase-det" routerLinkActive="active">Purchase Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" Wlcome>Asset Master</a>
+    </li>
+    <li>
+      <button class="btn btn-primary" (click)="logout()">
+        Logout
+      </button>
+    </li>
+  </ul>
+
+</div>
+
+<router-outlet></router-outlet> -->
+
+
+<div style="margin-left: 5%;margin-right:5%;margin-top: 2%" >
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue  lighten-2">
+    
+        <mdb-navbar-brand>
+          <a class="navbar-brand" routerLink="home" routerLinkActive="active" href="#">
+            <img src="assets/images/logo.png" height="30" class="d-inline-block align-top" alt="">
+          </a>
+        </mdb-navbar-brand>
+      
+        <mdb-icon fas icon="angle-left" size="lg" class="text-white mr-auto d-flex d-md-none align-self-center"></mdb-icon>
+      
+        <!-- Collapsible content -->
+        <links>
+    
+          <button type="button" (click)=list1() mdbBtn color="black" outline="true"
+            rounded="true" size="sm" class="px-2" mdbWavesEffect>
+            <mdb-icon fas icon="home" class="mt-0"></mdb-icon>
+          </button>
+      
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect>Features</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
+            </li> -->
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                Asset management<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                
+                <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-purchase-det" routerLinkActive="active" href="#">Purchase Details</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-asset-master" routerLinkActive="active" href="#">Asset Master</a>
+                <div class="divider dropdown-divider"></div>
+                <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-assetmaster-det" (click)="logout()" href="#">Logout</a>
+              </div>
+            </li>
+
+            
+      
+          </ul>
+          <!-- Links -->
+      
+          <!-- Search form -->
+          <!-- <form class="form-inline waves-light" mdbWavesEffect>
+            <div class="md-form my-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            </div>
+          </form> -->
+          <div>
+              <li class="nav-link waves-light">  
+          <label>Welcome User</label>
+        </li>
+      </div>
+    
+        </links>
+        <!-- Collapsible content -->
+      
+      
+      </mdb-navbar>
+      </div>
+      <!--/.Navbar-->
+      <h2 class="userDisplayName" style="text-shadow: black ">Welcome :{{userDisplayName}}</h2>
+    
+    <router-outlet></router-outlet>

@@ -1,0 +1,104 @@
+<h3>Delivery Date</h3>
+<div [hidden]="submitted" style="width: 400px ;align-self: center">
+
+  <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+      <!-- purchase Date-->
+
+<div class="form-group">
+    <label for="name"> purchase Date</label>
+    <input type="date" class="form-control" formControlName="pdDdate" #pdDdate />
+  </div>
+
+  <div
+    *ngIf="angForm.controls['pdDdate'].invalid && (angForm.controls['pdDdate'].dirty || angForm.controls['pdDdate'].touched)"
+    class="alert alert-danger">
+    <div *ngIf="angForm.controls['pdDdate'].errors.required">
+        Delivery Date is required.
+    </div>
+  </div>
+ <!-- Serial Number-->
+  <div class="form-group">
+      <label for="name"> Serial NUmber</label>
+      <input type="text" class="form-control" formControlName="amSNumber" #amSNumber/>
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['amSNumber'].invalid && (angForm.controls['amSNumber'].dirty || angForm.controls['amSNumber'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['amSNumber'].errors.required">
+        Serial number is required.
+      </div>
+    </div>
+
+       <!--Manufacturing year -->
+
+       <div class="form-group">
+          <label for="name"> Manifacturing Year</label>
+          <input type="text" class="form-control" formControlName="amMYear" #amMYear />
+    
+        </div>
+    
+        <div
+          *ngIf="angForm.controls['amMYear'].invalid && (angForm.controls['amMYear'].dirty || angForm.controls['amMYear'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['amMYear'].errors.required">
+            Manufacturing year is required.
+          </div>
+        </div>
+
+        <!-- Warranty Status -->
+
+        <div class="form-group">
+            <label for="name"> Warranty Status</label>
+            <br>
+            <input type="radio" value="Yes" id="amWarranty" name="amWarranty" formControlName="amWarranty" >Yes
+            <input type="radio" value="No" id="amWarranty" name="amWarranty" formControlName="amWarranty" >No
+          </div>
+
+       
+<!-- Warranty Date from-->
+
+        <div *ngIf="angForm.controls['amWarranty'].value=='Yes'" class="form-group">
+            <label for="name"> Warranty From</label>
+            <input type="date" class="form-control" formControlName="amFrom" #amFrom />
+        
+          </div>
+        
+          <div
+            *ngIf="angForm.controls['amFrom'].invalid && (angForm.controls['amFrom'].dirty || angForm.controls['amFrom'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['amFrom'].errors.required">
+                Warranty Date is required.
+            </div>
+          </div>
+
+          <!-- Warranty To -->
+
+        <div *ngIf="angForm.controls['amWarranty'].value=='Yes'" class="form-group">
+            <label for="name"> Warranty To</label>
+            <input type="date" class="form-control" formControlName="amTo" #amTo />
+        
+          </div>
+        
+          <div
+            *ngIf="angForm.controls['amTo'].invalid && (angForm.controls['amTo'].dirty || angForm.controls['amTo'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['amTo'].errors.required">
+              Ending  Warranty Date is required.
+            </div>
+          </div>
+        
+
+    <!-- submit -->
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">
+        Create Asset Details
+      </button>
+    </div>
+  </form>
+
+</div>
+

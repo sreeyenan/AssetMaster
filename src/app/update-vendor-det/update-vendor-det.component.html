@@ -1,0 +1,129 @@
+
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header info-color white-text">
+          <h4 class="title">
+          <i class="fa fa-pencil-alt"></i>Create Vendor Details</h4>
+</div>
+<!--Body-->
+<div class="modal-body" [hidden]="submitted" >
+
+  <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+
+    <!-- Vendor Name -->
+
+    <div class="form-group">
+      <label for="name"> vendor Name</label>
+      <input type="text" class="form-control" formControlName="vdName" #vdName [(ngModel)]="vendorDet.vdName" />
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['vdName'].invalid && (angForm.controls['vdName'].dirty || angForm.controls['vdName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['vdName'].errors.required">
+        Vendor Name is required.
+      </div>
+    </div>
+
+    <!-- Asset Type-->
+
+    <div class="form-group">
+            <label class="col-md-4">Asset Type </label>
+            <select   formControlName="vdAType" class="form-control" required #vdAType [(ngModel)]="vendorDet.vdAType">
+              <option value="" disabled>Choose Asset Type</option>
+              <option *ngFor="let at of assetType" value="{{at.adType}}">{{at.adType}}</option>
+          </select>
+           
+          </div>
+          <div *ngIf="angForm.controls['vdAType'].invalid && (angForm.controls['vdAType'].dirty || angForm.controls['vdAType'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['vdAType'].errors.required">
+              Asset Type is required.
+            </div>
+          </div>
+
+    <!-- Asset Name -->
+
+    <div class="form-group">
+                <label class="col-md-4"> Asset Name </label>
+                <select   formControlName="vdAName" class="form-control" required #vdAName [(ngModel)]="vendorDet.vdAName">
+                  <option value="" disabled>Choose Asset Name</option>
+                  <option *ngFor="let an of assetName" value="{{an.adName}}">{{an.adName}}</option>
+              </select>
+               
+              </div>
+              <div *ngIf="angForm.controls['vdAName'].invalid && (angForm.controls['vdAName'].dirty || angForm.controls['vdAName'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['vdAName'].errors.required">
+                   Asset Name is required.
+                </div>
+              </div>
+
+<!-- Vendor Date Valid From-->
+
+<div class="form-group">
+        <label for="name"> Vendor valid From</label>
+        <input type="date" class="form-control" formControlName="vdFrom" #vdFrom [(ngModel)]="vendorDet.vdFrom" />
+  
+      </div>
+  
+      <div
+        *ngIf="angForm.controls['vdFrom'].invalid && (angForm.controls['vdFrom'].dirty || angForm.controls['vdFrom'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['vdFrom'].errors.required">
+          Vendor Vald date is required.
+        </div>
+      </div>
+
+      <!-- Vendor Date Valid To-->
+
+<div class="form-group">
+        <label for="name"> Vendor valid To</label>
+        <input type="date" class="form-control" formControlName="vdTo" #vdTo [(ngModel)]="vendorDet.vdTo"/>
+  
+      </div>
+  
+      <div
+        *ngIf="angForm.controls['vdTo'].invalid && (angForm.controls['vdTo'].dirty || angForm.controls['vdTo'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['vdTo'].errors.required">
+          Vendor Vald date is required.
+        </div>
+      </div>
+<!-- Vendor Address-->
+      <div class="form-group">
+            <label class="col-md-4">Vendor Address </label>
+            <textarea class="form-control" rows = 4 cols = "5"
+            formControlName="vdAddress" 
+            #vdAddress [(ngModel)]="vendorDet.vdAddress"></textarea>
+          </div>
+          <div *ngIf="angForm.controls['vdAddress'].invalid && (angForm.controls['vdAddress'].dirty || angForm.controls['vdAddress'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['vdAddress'].errors.required">
+                    Vendor Address is required.
+            </div>
+            </div>
+  
+    <!-- submit -->
+
+
+    <div class="text-center mt-4 mb-2">
+        <button  type="button" (click)="list()" mdbBtn color="black"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+          <mdb-icon fas icon="arrow-circle-left" class="mt-0"></mdb-icon>
+            
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" mdbBtn color="green"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+            <mdb-icon fas icon="user-edit" class="mt-0"></mdb-icon>
+      
+          </button>
+      </div>
+  
+</form>
+
+</div>
+
+

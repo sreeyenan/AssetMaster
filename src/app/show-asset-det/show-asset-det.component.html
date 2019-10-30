@@ -1,0 +1,76 @@
+<!-- <h3>Asset Details</h3>
+<hr />
+<div id="modalDefaultContactForm" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+<div *ngIf="assetDet">
+    <div>
+        <label><b>Asset Id : </b></label>{{assetDet.adId}}
+    </div>
+    <div>
+        <label><b>Asset Type: </b></label>{{assetDet.adType}}
+    </div>
+    <div>
+        <label><b>Asset Name:</b></label>{{assetDet.adName}}
+    </div>
+    <div>
+        <label><b>Asset Class</b></label>{{assetDet.adClass}}
+    </div>
+</div>
+</div>
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Asset Details List</button><br> -->
+
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <!--Modal: Contact form-->
+  <div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header info-color white-text">
+        <h4 class="title">
+          <i class="fa fa-pencil-alt"></i> Asset Details</h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body" *ngIf="assetDet">
+
+        <!-- Default input name -->
+        <label for="defaultFormNameModalEx">Asset Id</label>
+        
+        <p id="defaultFormNameModalEx" class="form-control form-control-bg" >{{assetDet.adId}}</p>
+
+    
+
+        <!-- Default input email -->
+        <label for="defaultFormEmailModalEx">Asset Type</label>
+        <p type="password" id="defaultFormEmailModalEx" class="form-control form-control-bg">{{assetDet.adType}}</p>
+
+       
+
+        <!-- Default input subject -->
+        <label for="defaultFormSubjectModalEx">Asset Class</label>
+        <p type="text" id="defaultFormSubjectModalEx" class="form-control form-control-bg">{{assetDet.adClass}}</p>
+
+        <br>
+
+    
+        <div class="text-center mt-4 mb-2">
+          <button  (click)="list()" class="btn btn-info">Back
+            <i class="fa fa-send ml-2"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  <!--/Modal: Contact form-->
+</div>
+

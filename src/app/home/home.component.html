@@ -1,0 +1,102 @@
+<!-- <nav class="navbar navbar-expand -sm bg-primary navbar-dark"></nav>
+<div class="container-fluid">
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="list-asset-det" routerLinkActive="active">Asset Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="list-vendor-det" routerLinkActive="active">Vendor Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="list-purchase-det" routerLinkActive="active">Purchase Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="list-assetmaster-det" routerLinkActive="active">Asset Master</a>
+    </li>
+    <li>
+      <button class="btn btn-primary" (click)="logout()">
+        Logout
+      </button>
+    </li>
+  </ul>
+
+</div> -->
+
+<!--Navbar-->
+<div style="margin-left: 5%;margin-right:5%;margin-top: 2%" >
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue-gradient">
+
+    <mdb-navbar-brand>
+      <a class="navbar-brand" routerLink="home" routerLinkActive="active" href="#">
+        <img src="assets/images/logo.png" height="30" class="d-inline-block align-top" alt="">
+      </a>
+    </mdb-navbar-brand>
+  
+    <mdb-icon fas icon="angle-left" size="lg" class="text-white mr-auto d-flex d-md-none align-self-center"></mdb-icon>
+  
+    <!-- Collapsible content -->
+    <links>
+
+      <button type="button" (click)=list1() mdbBtn color="black" outline="true"
+        rounded="true" size="sm" class="px-2" mdbWavesEffect>
+        <mdb-icon fas icon="home" class="mt-0"></mdb-icon>
+      </button>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>Features</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
+        </li> -->
+        <!-- Dropdown -->
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            Asset management<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-asset-det" routerLinkActive="active" href="#">Asset Details</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-vendor-det" routerLinkActive="active" href="#">Vendor Details</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-purchase-det" routerLinkActive="active" href="#">Purchase Details</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-asset-master" routerLinkActive="active" href="#">Asset Master</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect routerLink="list-assetmaster-det" (click)="logout()" href="#" color="red">Logout</a>
+          </div>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+  
+
+        <div>
+            <li class="nav-link waves-light">  
+        <label>Welcome Admin</label>
+      </li>
+    </div>
+      <!-- Search form -->
+      <!-- <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form my-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        </div>
+      </form> -->
+
+    </links>
+    <!-- Collapsible content -->
+  
+  
+  </mdb-navbar>
+  </div>
+  <!--/.Navbar-->
+
+  <!-- <div class="view overlay zoom" style="align-items:center">
+      <img src="assets/images/wel.png" class="img-fluid " alt="zoom">
+      <div class="mask flex-center waves-effect waves-light">
+        <p class="white-text"></p>
+      </div>
+    </div>
+     --><h2 class="userDisplayName" style="text-shadow: black ">Welcome :{{userDisplayName}}</h2>
+
+<router-outlet></router-outlet>

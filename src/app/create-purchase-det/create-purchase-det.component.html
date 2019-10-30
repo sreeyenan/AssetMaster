@@ -1,0 +1,143 @@
+
+<div  id="modalDefaultContactForm" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header info-color white-text">
+          <h4 class="title">
+              <i class="fa fa-pencil-alt"></i>Create Purchase Details</h4>
+            </div>
+<!--Body-->
+<div class="modal-body" [hidden]="submitted" >
+  <form [formGroup]="angForm" novalidate (ngSubmit)="onSubmit()">
+
+
+    <!-- Purchase Order -->
+
+    <div class="form-group">
+      <label for="name"> Purchase Order</label>
+      <input type="text" class="form-control" formControlName="pdOrder" #pdOrder />
+
+    </div>
+
+    <div
+      *ngIf="angForm.controls['pdOrder'].invalid && (angForm.controls['pdOrder'].dirty || angForm.controls['pdOrder'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['pdOrder'].errors.required">
+        Purchase Order is required.
+      </div>
+    </div>
+
+    <!-- Asset Type-->
+
+    <div class="form-group">
+            <label class="col-md-4">Asset Type </label>
+            <select  (click)="onSelect($event.target.value)" formControlName="pdType" class="form-control" required #pdType>
+              <option value="" disabled>Choose Asset Type</option>
+              <option *ngFor="let at of assetType" value="{{at.vdAType}}">{{at.vdAType}}</option>
+          </select>
+           
+          </div>
+          <div *ngIf="angForm.controls['pdType'].invalid && (angForm.controls['pdType'].dirty || angForm.controls['pdType'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['pdType'].errors.required">
+              Asset Type is required.
+            </div>
+          </div>
+
+    <!-- Asset Name -->
+
+    <div class="form-group">
+                <label class="col-md-4"> Asset Name </label>
+                <select  (click)="onSelectName($event.target.value)" formControlName="pdName" class="form-control" required #pdName>
+                  <option value="" disabled>Choose Asset Name</option>
+                  <option *ngFor="let an of assetName" value="{{an.vdAName}}">{{an.vdAName}}</option>
+              </select>
+               
+              </div>
+              <div *ngIf="angForm.controls['pdName'].invalid && (angForm.controls['pdName'].dirty || angForm.controls['pdName'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['pdName'].errors.required">
+                   Asset Name is required.
+                </div>
+              </div>
+
+                  <!-- Vendor Name -->
+
+    <div class="form-group">
+        <label class="col-md-4"> Vendor Name </label>
+        <select   formControlName="pdVendor" class="form-control" required #pdVendor>
+          <option value="" disabled>Choose Asset Name</option>
+          <option *ngFor="let vn of vendorName" value="{{vn.vdName}}">{{vn.vdName}}</option>
+      </select>
+       
+      </div>
+      <div *ngIf="angForm.controls['pdVendor'].invalid && (angForm.controls['pdVendor'].dirty || angForm.controls['pdVendor'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['pdVendor'].errors.required">
+           Vendor Name is required.
+        </div>
+      </div>
+
+      <!-- Purchase Quantity -->
+
+    <div class="form-group">
+        <label for="name"> Purchase Quantity</label>
+        <input type="number" min="1" class="form-control" formControlName="pdQty" required #pdQty />
+  
+      </div>
+  
+      <div
+        *ngIf="angForm.controls['pdQty'].invalid && (angForm.controls['pdQty'].dirty || angForm.controls['pdQty'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['pdQty'].errors.required">
+          Purchase Quantity is required.
+        </div>
+      </div>
+
+      <!-- purchase Date-->
+
+<div class="form-group">
+    <label for="name"> purchase Date</label>
+  
+  <input type="date" class="form-control" formControlName="pdDate" #pdDate />
+  </div>
+
+  <div
+    *ngIf="angForm.controls['pdDate'].invalid && (angForm.controls['pdDate'].dirty || angForm.controls['pdDate'].touched)"
+    class="alert alert-danger">
+    <div *ngIf="angForm.controls['pdDate'].errors.required">
+        purchase Date is required.
+    </div>
+  </div>
+  <!-- <div class="col-md-6 mx-auto my-5">
+      <form [formGroup]="datePickerForm">
+      <mdb-date-picker
+          name="mydate"
+          [options]="myDatePickerOptions"
+          [placeholder]="'Selected date'"
+          formControlName="datePickerControl"
+          required>
+        </mdb-date-picker>
+        </form>
+  </div> -->
+
+
+  
+    <!-- submit -->
+
+
+    <div class="text-center mt-4 mb-2">
+        <button  type="button" (click)="list()" mdbBtn color="black"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+          <mdb-icon fas icon="arrow-circle-left" class="mt-0"></mdb-icon>
+            
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" mdbBtn color="green"outline="true" rounded="true" size="sm" class="px-3" mdbWavesEffect>
+            <mdb-icon fas icon="cart-plus" class="mt-0"></mdb-icon>
+      
+          </button>
+      </div>
+  
+</form>
+
+</div>
